@@ -1,14 +1,14 @@
 from abc import ABC, abstractmethod
 
 
-# Producto (Product)
+# Producto (Product) Interfaz
 class Animal(ABC):
     @abstractmethod
     def hablar(self):
         pass
 
 
-# Productos Concretos (Concrete Products)
+# Productos Concretos (Concrete Products) Implementa la Interfaz Producto
 class Perro(Animal):
     def hablar(self):
         return "Guau!"
@@ -19,7 +19,12 @@ class Gato(Animal):
         return "Miau!"
 
 
-# Creador (Creator)
+class Leon(Animal):
+    def hablar(self):
+        return "Grrr!"
+
+
+# Creador (Creator) Interfaz
 class CreadorAnimales(ABC):
     @abstractmethod
     def crear_animal(self):
@@ -37,6 +42,11 @@ class CreadorDeGatos(CreadorAnimales):
         return Gato()
 
 
+class CreadorDeLeones(CreadorAnimales):
+    def crear_animal(self):
+        return Leon()
+
+
 # Uso del Factory
 def main():
     creador_perros = CreadorDePerros()
@@ -50,3 +60,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# En este ejemplo, Animal es la interfaz del producto, Perro y Gato son las clases concretas que implementan Animal.
+# El CreadorAnimales es la interfaz del creador y CreadorDePerros y CreadorDeGatos son los creadores concretos que implementan el método crear_animal,
+# instanciando los objetos concretos Perro y Gato, respectivamente.
