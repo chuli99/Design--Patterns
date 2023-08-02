@@ -34,6 +34,7 @@ if __name__ == "__main__":
     adaptee = Adaptee()
     print("Client: Interfaz de Adaptee no comprendida ")
     print(f"Adaptee: {adaptee.specific_request()}", end="\n\n")
+    
 
     print("Client: Llamando adaptador:")
     adapter = Adapter()
